@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function printParameters(fn){
+                if (!(typeof fn==='function')){
+                    console.log('This is not a valid function ...!');
+                    return;
+                }
+                else{
+                    //console.log(fn.call({},2,3));
+                    console.log(fn.toString());
+                    var start=false;
+                    var st=fn.toString();
+                    var newst='';
+                    for(var i= 0,len=st.length;i<len;i++){
+                        if (st[i]=='('){
+                            start=true;
+                            continue;
+                        }
+                        if (st[i]==')'){
+                            start=false;
+                        }
+                        if (start){
+                            newst+=st[i];
+                        }
+                    }
+                    var result=newst.split(',');
+                    console.log(result);
+                }
+            }
+
+            function add( x , y ) {
+                return x+y;
+            }
+            printParameters(add);
+            //console.log(printParameters(add));
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

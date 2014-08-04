@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            Array.prototype.myreduce=function (fn){
+                var sum=0;
+                for (var i=0;i<this.length;i++){
+                    sum+=this[i]
+                }
+                return sum;
+            }
+            var x=[32,11,10,5];
+            var y=x.myreduce(add);
+            console.log(y);
+
+            function add(x,y) {
+                return x+y;
+            }
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
